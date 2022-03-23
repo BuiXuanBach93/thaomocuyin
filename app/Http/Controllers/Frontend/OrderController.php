@@ -33,12 +33,12 @@ class OrderController extends Controller
     {
         $this->categoryModel = new Category();
 
-        $menuCached = Redis::get('menus');
+        $menuCached = Redis::get('tmut_menus');
         if($menuCached) {
             $this->menuCategories = json_decode($menuCached, true);
         } else {
             $this->menuCategories = $this->categoryModel->getMenuCategory();
-            Redis::set('menus', json_encode($this->menuCategories));
+            Redis::set('tmut_menus', json_encode($this->menuCategories));
         }
         View::share([
             'cookieOrders' => Product::getOrderFromCookie(),

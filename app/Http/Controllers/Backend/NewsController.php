@@ -371,8 +371,8 @@ class NewsController extends AppBaseController
         $commonController->siteMap(false, true);
 
         // Clean redis key
-        $cachedKeyMobile = "mobile_".$news->slug;
-        $cachedKeyDesktop = "desktop_".$news->slug;
+        $cachedKeyMobile = "tmut_mobile_".$news->slug;
+        $cachedKeyDesktop = "tmut_desktop_".$news->slug;
         try {
             Redis::del(Redis::keys($cachedKeyMobile));
         } catch (\Throwable $th) {
@@ -432,7 +432,7 @@ class NewsController extends AppBaseController
             }
             $canonicals[$news->slug] = $news->canonical;
         }
-        Redis::set('canonical_urls', json_encode($canonicals));
+        Redis::set('tmut_canonical_urls', json_encode($canonicals));
         echo "Total:".count($canonicals)." canonical urls"; exit;
         
     }

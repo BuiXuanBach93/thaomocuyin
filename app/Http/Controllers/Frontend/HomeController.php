@@ -40,12 +40,12 @@ class HomeController extends Controller
         $this->categoryModel = new Category();
         $this->productModel = new Product();
 
-        $menuCached = Redis::get('menus');
+        $menuCached = Redis::get('tmut_menus');
         if($menuCached) {
             $this->menuCategories = json_decode($menuCached, true);
         } else {
             $this->menuCategories = $this->categoryModel->getMenuCategory();
-            Redis::set('menus', json_encode($this->menuCategories));
+            Redis::set('tmut_menus', json_encode($this->menuCategories));
         }
         View::share([
             'cookieOrders' => Product::getOrderFromCookie(),
@@ -89,7 +89,7 @@ class HomeController extends Controller
     {
         // Check this url in canonical list
         try {
-            $canonicalUrls = json_decode(Redis::get('canonical_urls'), true);
+            $canonicalUrls = json_decode(Redis::get('tmut_canonical_urls'), true);
             if($canonicalUrls[$productSlug]) {
                 header('Location: '.$canonicalUrls[$productSlug], true, 301);
                 exit();
@@ -101,9 +101,9 @@ class HomeController extends Controller
 
         $isMobile = isMobile();
         if ($isMobile) {
-            $cachedKey = "mobile_".$productSlug;
+            $cachedKey = "tmut_mobile_".$productSlug;
         } else {
-            $cachedKey = "desktop_".$productSlug;
+            $cachedKey = "tmut_desktop_".$productSlug;
         }
         $dataCached = Redis::get($cachedKey);
         if($dataCached) {
@@ -749,9 +749,9 @@ class HomeController extends Controller
         $productSlug = $product->slug;
         $isMobile = isMobile();
         if ($isMobile) {
-            $cachedKey = "mobile_".$productSlug;
+            $cachedKey = "tmut_mobile_".$productSlug;
         } else {
-            $cachedKey = "desktop_".$productSlug;
+            $cachedKey = "tmut_desktop_".$productSlug;
         }
         if (!$customerName || !$content) {
             return response([

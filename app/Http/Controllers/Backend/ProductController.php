@@ -393,8 +393,8 @@ class ProductController extends AppBaseController
 
 
         // Clean redis key
-        $cachedKeyMobile = "mobile_".$product->slug;
-        $cachedKeyDesktop = "desktop_".$product->slug;
+        $cachedKeyMobile = "tmut_mobile_".$product->slug;
+        $cachedKeyDesktop = "tmut_desktop_".$product->slug;
         try {
             Redis::del(Redis::keys($cachedKeyMobile));
         } catch (\Throwable $th) {

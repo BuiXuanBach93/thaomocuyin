@@ -107,8 +107,8 @@ class Kernel extends ConsoleKernel
             $rating->save();
 
             // Clean redis
-            $cachedKeyMobile = "mobile_".$randomProduct['slug'];
-            $cachedKeyDesktop = "desktop_".$randomProduct['slug'];
+            $cachedKeyMobile = "tmut_mobile_".$randomProduct['slug'];
+            $cachedKeyDesktop = "tmut_desktop_".$randomProduct['slug'];
             try {
                 Redis::del(Redis::keys($cachedKeyMobile));
             } catch (\Throwable $th) {
