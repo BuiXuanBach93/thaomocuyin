@@ -1,0 +1,164 @@
+{
+    "@context":"https://schema.org",
+    "@graph":[
+       {
+          "@type":"Organization",
+          "@id":"https://thaomocuytin.com/#organization",
+          "name":"Thảo Mộc Uy Tín",
+          "url":"https://thaomocuytin.com/",
+          "sameAs":[
+ 
+          ],
+          "logo":{
+             "@type":"ImageObject",
+             "@id":"https://thaomocuytin.com/#logo",
+             "inLanguage":"vi-VN",
+             "url":"https://thaomocuytin.com/images/logo_thaomocuytin.png",
+             "width":230,
+             "height":50,
+             "caption":"Thảo Mộc Uy Tín"
+          },
+          "image":{
+             "@id":"https://thaomocuytin.com/#logo"
+          }
+       },
+       {
+          "@type":"WebSite",
+          "@id":"https://thaomocuytin.com/#website",
+          "url":"https://thaomocuytin.com/",
+          "name":"Thảo Mộc Uy Tín",
+          "description":"thaomocuytin.com là kênh mua bán trực tuyến thực phẩm chức năng, thực phẩm bổ sung. Các sản phẩm đều được nhập khẩu chính hãng từ Mỹ, Úc, Nhật Bản...",
+          "publisher":{
+             "@id":"https://thaomocuytin.com/#organization"
+          },
+          "potentialAction":[
+             {
+                "@type":"SearchAction",
+                "target":"https://thaomocuytin.com/tim-kiem?keyword={search_term_string}",
+                "query-input":"required name=search_term_string"
+             }
+          ],
+          "inLanguage":"vi-VN"
+       },
+       {
+          "@type":"ImageObject",
+          "@id":"{{$productUrl}}#primaryimage",
+          "inLanguage":"vi-VN",
+          "url":"{{$product['seo_image']}}",
+          "caption":"{{$product['seo_title']}}"
+       },
+       {
+          "@type":"WebPage",
+          "@id":"{{$productUrl}}#webpage",
+          "url":"{{$productUrl}}",
+          "name":"{{$product['seo_title']}}",
+          "isPartOf":{
+             "@id":"https://thaomocuytin.com/#website"
+          },
+          "primaryImageOfPage":{
+             "@id":"{{$productUrl}}#primaryimage"
+          },
+          "datePublished":"{{$product['created_at']}}",
+          "dateModified":"{{$product['updated_at']}}",
+          "description":"{{$product['seo_description']}}",
+          "breadcrumb":{
+             "@id":"{{$productUrl}}#breadcrumb"
+          },
+          "inLanguage":"vi-VN",
+          "potentialAction":[
+             {
+                "@type":"ReadAction",
+                "target":[
+                   "{{$productUrl}}"
+                ]
+             }
+          ]
+       },
+       {
+          "@type":"BreadcrumbList",
+          "@id":"{{$productUrl}}#breadcrumb",
+          "itemListElement":[
+             {
+                "@type":"ListItem",
+                "position":1,
+                "item":{
+                   "@type":"WebPage",
+                   "@id":"<?php echo Constant::DOMAIN;?>",
+                   "url":"<?php echo Constant::DOMAIN;?>",
+                   "name":"<?php echo Constant::WEB_NAME;?>"
+                }
+             }
+             <?php
+                $position = 3;
+                if ($categoryParent) {
+                    $parentBreadScrumb = ',{"@type":"ListItem","position":2,"item":{"@id":"'.Constant::DOMAIN.'/'.$categoryParent['slug'].'","name":"'.$categoryParent['title'].'"}}';
+                    $child = ', {"@type":"ListItem","position":3,"item":{"@type":"WebPage", "@id":"'.Constant::DOMAIN.'/'.$category['slug'].'","url":"'.Constant::DOMAIN.'/'.$category['slug'].'","name":"'.$category['title'].'"}}';
+                    echo $parentBreadScrumb.$child;
+                    $position = 4;
+                } else {
+                    echo ', {"@type":"ListItem","position":2,"item":{"@type":"WebPage","@id":"'.Constant::DOMAIN.'/'.$category['slug'].'","url":"'.Constant::DOMAIN.'/'.$category['slug'].'","name":"'.$category['title'].'"}}';
+                }
+             ?>
+             ,{
+                "@type":"ListItem",
+                "position": {{$position}},
+                "item":{
+                   "@type":"WebPage",
+                    "@id":"{{$productUrl}}",
+                    "url":"{{$productUrl}}",
+                    "name":"{{$product['seo_title']}}"
+                }
+             }
+          ]
+       },
+       {
+          "@type":"Article",
+          "@id":"{{$productUrl}}#article",
+          "isPartOf":{
+             "@id":"{{$productUrl}}#webpage"
+          },
+          "author":{
+             "@id":"https://thaomocuytin.com/#/schema/person/5dade1a7573b8ed502038c58d285aa17"
+          },
+          "headline":"{{$product['seo_title']}}",
+          "datePublished":"{{$product['created_at']}}",
+          "dateModified":"{{$product['updated_at']}}",
+          "commentCount":{{$numberRating}},
+          "mainEntityOfPage":{
+             "@id":"{{$productUrl}}#webpage"
+          },
+          "publisher":{
+             "@id":"https://thaomocuytin.com/#organization"
+          },
+          "image":{
+             "@id":"{{$productUrl}}#primaryimage"
+          },
+          "articleSection":"{{$category['title']}}",
+          "inLanguage":"vi-VN",
+          "potentialAction":[
+             {
+                "@type":"CommentAction",
+                "name":"Comment",
+                "target":[
+                   "{{$productUrl}}#submit-question"
+                ]
+             }
+          ]
+       },
+       {
+          "@type":[
+             "Person"
+          ],
+          "@id":"https://thaomocuytin.com/#/schema/person/5dade1a7573b8ed502038c58d285aa17",
+          "name":"Ka Mi",
+          "image":{
+             "@type":"ImageObject",
+             "@id":"https://thaomocuytin.com/#personlogo",
+             "inLanguage":"vi-VN",
+             "url":"https://secure.gravatar.com/avatar/fc41f3aed041804ab735bb5f6f0647fb?s=96&d=mm&r=g",
+             "caption":"Ka Mi"
+          },
+          "description":"T\u00f4i c\u00f3 ni\u1ec1m \u0111am m\u00ea v\u00f4 h\u1ea1n v\u1edbi vi\u1ec7c \u0111\u1ecdc s\u00e1ch, \u0111\u1eb7c bi\u1ebft l\u00e0 \u0111\u1ed1i v\u1edbi nh\u1eefng quy\u1ec3n s\u00e1ch li\u00ean quan \u0111\u1ebfn s\u1ee9c kh\u1ecfe. Ki\u1ebfn th\u1ee9c m\u00e0 t\u00f4i th\u1ee5 \u0111\u1eafc \u0111\u01b0\u1ee3c ch\u1ec9 l\u00e0 h\u1ea1t c\u00e1t nh\u1ecf gi\u1eefa m\u00eanh m\u00f4ng sa m\u1ea1c. V\u00ec th\u1ebf t\u00f4i mu\u1ed1n \u0111\u01b0\u1ee3c l\u0129nh h\u1ed9i nhi\u1ec1u ki\u1ebfn th\u1ee9c h\u01a1n \u0111\u1ec3 c\u00f3 th\u1ec3 chia s\u1ebb r\u1ed9ng r\u00e3i v\u1edbi b\u1ea1n \u0111\u1ecdc nh\u1eefng v\u1ea5n \u0111\u1ec1 m\u00e0 t\u00f4i \u0111\u00e3 \u0111\u01b0\u1ee3c h\u1ecdc h\u1ecfi v\u1edbi hi v\u1ecdng nh\u1eefng s\u1ef1 s\u1ebb chia n\u00e0y s\u1ebd l\u00e0 ki\u1ebfn th\u1ee9c b\u1ed5 \u00edch v\u1edbi b\u1ea1n \u0111\u1ecdc."
+       }
+    ]
+ }

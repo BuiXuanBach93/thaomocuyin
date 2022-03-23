@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /*keyword=
+Disallow: /thanh-toan
+Disallow: /*tags=
+Disallow: /admin/*
+
+Sitemap: https://thaomocuytin.com/sitemap.xml

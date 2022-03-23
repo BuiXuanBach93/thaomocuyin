@@ -1,0 +1,16 @@
+/vendor
+public/images/original/*
+public/images/100/*
+public/images/200/*
+public/images/400/*
+public/images/600/*
+.DS_Store
+.env
+public/sitemaps
+public/sitemap.xml
+public/.htaccess
+config/database.php
+composer.lock
+public/sitemaps/products.xml
+storage/framework
+storage

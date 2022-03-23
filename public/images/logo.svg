@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="230" height="50" viewBox="0 0 250 50">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 81.14px;
+        font-family: Poppins;
+      }
+
+      .cls-1, .cls-3 {
+        fill: #ff0000;
+      }
+
+      .cls-2 {
+        fill: #1b74e7;
+      }
+
+      .cls-1, .cls-2 {
+        font-weight: 700;
+      }
+
+      .cls-2 {
+        font-size: 40px;
+        font-family: "Helvetica Neue";
+      }
+
+      .cls-3 {
+        stroke: #fff;
+        stroke-width: 0.296px;
+      }
+    </style>
+  </defs>
+  <text id="thaomocuytin" class="cls-1" transform="translate(4.998 23.31) scale(0.296 0.296)">thaomocuytin.com</text>
+  <text id="SỨC_KHOẺ_LÀ_VÀNG" data-name="AN TÂM MUA THUỐC CHÍNH HÃNG" class="cls-2" transform="translate(10.145 43.826) scale(0.296 0.296)">AN TÂM MUA THUỐC CHÍNH HÃNG</text>
+  <rect class="cls-3" x="8" y="49" width="50" height="2"/>
+</svg>
