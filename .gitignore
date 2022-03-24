@@ -9,7 +9,6 @@ public/images/600/*
 public/sitemaps
 public/sitemap.xml
 public/.htaccess
-config/database.php
 composer.lock
 public/sitemaps/products.xml
 storage/framework
